@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 //Spring Configuration class that sets up the 'DataSource' and the 'JdbcTemplate' bean
 @Configuration	
-@ComponentScan("com.gl.dao")
+@ComponentScan("com.example.dao")
 public class JdbcConfig 
 {
 	//Database Connectivity
@@ -43,4 +43,5 @@ public class JdbcConfig
 	}
 	
 	
+
 }
