@@ -29,19 +29,26 @@ public class App
 		TodoDao dao=context.getBean(TodoDaoImpl.class);
 
 		
-		//Todo todo = new Todo(1,"task1","task1 so and so");
-//		Todo todo = new Todo(2,"task2","task2 so and so");
-//		Todo todo1 = new Todo(3,"task3","task3 so and so");
-//		Todo todo2 = new Todo(4,"task4","task4 so and so");
-
+//		Todo todo = new Todo(1,"task1","task1 so and so");
+//		Todo todo1 = new Todo(2,"task2","task2 so and so");
+//		Todo todo2 = new Todo(3,"task3","task3 so and so");
+//		Todo todo3 = new Todo(4,"task4","task4 so and so");
+//
 //		dao.saveTodo(todo);
 //		dao.saveTodo(todo1);
 //		dao.saveTodo(todo2);
-//
+//		dao.saveTodo(todo3);
+//		
+
+
+		
+		
 //				Todo todo1 = new Todo(2,"task2","coding");
 //				dao.updateTodo(todo1);
-//
-		//System.out.println(dao.getTodo(4));
+//				
+//				dao.getAllTodos();
+
+		System.out.println(dao.getTodo(4));
 		 dao.deleteTodo(4);
 
 
