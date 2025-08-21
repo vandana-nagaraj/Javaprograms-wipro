@@ -76,7 +76,7 @@
 </beans>
 
 
-3. Spring JDBC using JDBC Template and RowMapper to map rows of a ResultSet
+3. Spring JDBC using JDBCTemplate class  and RowMapper to map rows of a ResultSet
 
 //Spring Configuration class that sets up the 'DataSource' and the 'JdbcTemplate' bean
 @Configuration	
