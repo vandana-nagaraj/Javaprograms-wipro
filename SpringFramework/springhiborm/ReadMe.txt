@@ -1,4 +1,4 @@
-Hibernate  == SessionFactory
+1. JDBC purely with Hibernate  == SessionFactory
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -26,7 +26,7 @@ Hibernate  == SessionFactory
    </session-factory>  
 </hibernate-configuration>
 
-Spring + Hibernate == LocalSessionFactory
+2. Jdbc using Spring + Hibernate == LocalSessionFactory
 
 <!--  1. Component Scanning -->
 <context:component-scan base-package="com.example.springhiborm"></context:component-scan>
@@ -75,7 +75,11 @@ Spring + Hibernate == LocalSessionFactory
 
 </beans>
 
-Spring MVC + JdbcTemplate( Define in a Dispatcher-Servlet.xml)
+
+3. 
+
+
+4. Spring MVC + JdbcTemplate( Define in a Dispatcher-Servlet.xml)
 
 
 <!-- Enable annotation config -->
