@@ -52,11 +52,27 @@ Only the owner side updates the foreign key column in the DB
 
 b) One to Many --- > 
 
-unidirectional - One to Many ---> ( Student --- > Courses)
+i) unidirectional - One to Many ---> ( Student --- > Courses)
+In Student entity 
 //Unidirectional one-to-many mapping with courses
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="student_id") // fk in course table ( which shows that student has a reference of Report Card)
 	private List<Course> courses = new ArrayList<>();
 	
+
+ii)  Bidirectional -- Student <---> Courses
+
+In Student entity
+   /* bidirectional 
+	@OneToMany(mappedBy="student" , cascade=CascadeType.ALL)
+	private List<Course> courses = new ArrayList<>();
+*/
+
+In Course entity
+	/* If it is bidirectional
+	@ManyToOne
+	@JoinColumn(name="student_id")  // Student_id will be a foreign key in the owner table
+	private Student student;
+    */
 
 
