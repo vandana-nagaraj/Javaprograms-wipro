@@ -75,4 +75,8 @@ In Course entity
 	private Student student;
     */
 
+Summary :
+
+In Unidirectional : Parent has @OneToMany + @JoinColumn .  Child doesn't have reference Parent.
+Bidirectional : Child adds @ManyToOne(mappedBy) back to Parent ---> Both side navigation is possible
 
