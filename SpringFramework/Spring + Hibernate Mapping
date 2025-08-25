@@ -86,6 +86,8 @@ No change in course entity
 // to make it as Bidirectional many-to-many apply below changes in course entity 
 @ManyToMany(mappedBy="courses")
 	private List<Student> students = new ArrayList();
+
+
 Summary :
 
 In Unidirectional : Parent has @OneToMany + @JoinColumn .  Child doesn't have reference Parent.
