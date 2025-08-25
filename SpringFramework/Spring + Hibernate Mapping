@@ -75,6 +75,17 @@ In Course entity
 	private Student student;
     */
 
+3. Unidirectional : Many-to-Many  (Student -> Course)
+//Unidirectional many-to-many mapping with courses
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="student_course" , joinColumns=@JoinColumn(name="student_id"),inverseJoinColumns=@JoinColumn(name="course_id")) //will create a separate table 
+	private List<Course> courses = new ArrayList<>();
+
+No change in course entity
+
+// to make it as Bidirectional many-to-many apply below changes in course entity 
+@ManyToMany(mappedBy="courses")
+	private List<Student> students = new ArrayList();
 Summary :
 
 In Unidirectional : Parent has @OneToMany + @JoinColumn .  Child doesn't have reference Parent.
