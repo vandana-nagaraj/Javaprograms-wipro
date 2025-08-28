@@ -1,8 +1,5 @@
 package com.company.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +13,11 @@ import com.company.model.User;
 import com.company.service.TaskService;
 import com.company.service.UserServiceImpl;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
-public class TaskController {
+public class MainController {
 
 	@Autowired
 	private TaskService taskService;
@@ -28,6 +28,31 @@ public class TaskController {
 	 @GetMapping("/") // Handle requests to the home page
 	    public String showHomePage() {
 	        return "home";  // This will load home.html from templates folder
+	    }
+	 
+	 
+
+	 @GetMapping("/register")
+	    public String showRegisterPage() {
+	        return "register";  // Load register.html
+	    }
+
+	 //When you will pass the values from register.html it will take the parameters username and password ,
+	 //and bind this with the variables as username and password which is of String type
+	    @PostMapping("/register")
+	    public String registerUser(@RequestParam("username") String username,
+	                               @RequestParam("password") String password,
+	                               Model model) {
+	        
+	        User user = new User(username, password);
+	        String result = userService.registerUser(user);
+
+	        if (result.equals("User registered successfully!")) {
+	            return "redirect:/log";  // Redirect to login page
+	        } else {
+	            model.addAttribute("message", result);
+	            return "register";  // Stay on register page if username exists
+	        }
 	    }
 	 
 	 @GetMapping("/log")
@@ -90,27 +115,4 @@ public class TaskController {
 	
 	
 	
-	 @GetMapping("/register")
-	    public String showRegisterPage() {
-	        return "register";  // Load register.html
-	    }
-
-	 //When you will pass the values from register.html it will take the parameters username and password ,
-	 //and bind this with the variables as username and password which is of String type
-	    @PostMapping("/register")
-	    public String registerUser(@RequestParam("username") String username,
-	                               @RequestParam("password") String password,
-	                               Model model) {
-	        
-	        User user = new User(username, password);
-	        String result = userService.registerUser(user);
-
-	        if (result.equals("User registered successfully!")) {
-	            return "redirect:/log";  // Redirect to login page
-	        } else {
-	            model.addAttribute("message", result);
-	            return "register";  // Stay on register page if username exists
-	        }
-	    }
 }
-
