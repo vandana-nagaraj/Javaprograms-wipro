@@ -114,3 +114,10 @@ Teacher :  id name subject
 
 //
 
+
+
+@EntityGraph :- Controls fetch strategy per query -- avoids LazyInitializationexception
+
+Polymorphic Behaviour : To query with Parent  and you will get all childs automatically
+
+
