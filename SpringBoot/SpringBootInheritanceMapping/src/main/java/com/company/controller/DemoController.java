@@ -63,7 +63,7 @@ public class DemoController {
 		return "Record Added";
 		
 	}
-		@GetMapping("/studentsdata")
+		@GetMapping("/studentswithemail")
 		public List<StudentDTO> students()
 		{
 			return studentService.findAllWithEmails().stream()
@@ -108,18 +108,11 @@ public class DemoController {
 			
 		}
 		
-//		@GetMapping("/students_dto")
-//		public List<Student_DTO> student_dto()
-//		{
-//			return studentService.().stream()
-//					.map(s-> new StudentDTO(s.getId(),
-//							s.getName(),
-//							s.getAddress().getCity()
-//							.collect(Collectors.toList())));
-//			
-//			
-//		
-//		}
-//	
+		@GetMapping("/students_dto")
+		public List<Student_DTO> student_dto()
+		{
+              return studentService.allStudents_DTO();
+		}
+	
 
 }

@@ -12,10 +12,12 @@ import com.company.entity.base.Person;
 
 @Repository
 public interface PersonRepo extends JpaRepository<Person , Long>{
-	 // JPQL
-	@Query("select s from Student s")
-	List<Student> findAllStudents();
-	@Query("select t from Teacher t")
-	List<Teacher>findAllTeachers();
+	
+	// JPQL
+			@Query("select s from Student s")
+			List<Student> findAllStudents();
+			
+			@Query("select t from Teacher t")
+			List<Teacher>findAllTeachers();
 
 }
