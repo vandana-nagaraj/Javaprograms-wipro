@@ -95,6 +95,8 @@ public class TaskController {
 	        return "register";  // Load register.html
 	    }
 
+	 //When you will pass the values from register.html it will take the parameters username and password ,
+	 //and bind this with the variables as username and password which is of String type
 	    @PostMapping("/register")
 	    public String registerUser(@RequestParam("username") String username,
 	                               @RequestParam("password") String password,
@@ -111,3 +113,4 @@ public class TaskController {
 	        }
 	    }
 }
+
