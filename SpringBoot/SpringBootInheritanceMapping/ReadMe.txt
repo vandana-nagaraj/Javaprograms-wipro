@@ -114,10 +114,15 @@ Teacher :  id name subject
 
 //
 
+@EntityGraph --  Normally , JPA Associations are lazy(eg: @OneToMany , @ManyTOMany) , If you fetch an entity and later try entity.getChildren outside the transaction you get and error as 
 
+LazyInitializationException : Could not initialize proxy - no session
+
+so @EntityGraph solves this by telling JPA as when you fetch this entity , also fetch these associations eagerly in one query.
 
 @EntityGraph :- Controls fetch strategy per query -- avoids LazyInitializationexception
 
 Polymorphic Behaviour : To query with Parent  and you will get all childs automatically
+
 
 
