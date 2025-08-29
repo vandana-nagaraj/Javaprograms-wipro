@@ -33,15 +33,22 @@ public class SecurityConfiguration {
             .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN") // means who as admin and user access  he can access /admin/add , /admin/delete  , /user/view , 
              .anyRequest().authenticated()
             .and()
-            .formLogin()
-            .permitAll();       
+           // here you need to call post mapping first in postman ( http://localhost:8080/login) and provide the user name and password in the form of key and value in form-data under Body tab and the access required mappings based on role
+//            .formLogin()
+//            .permitAll();       
+//        return http.build();
+            
+            // here you need not to call post mapping in postman directly you can use Basic Authentication from authentication tab and provide the user name and password
+            .httpBasic()  // enable HTTP Basic authentication
+            .and()
+            .formLogin().disable();  // disable form login if you want only Basic Auth
         return http.build();
     }
 
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/h2-console/**", "/js/**");
-    }
+//    @Bean
+//    public WebSecurityCustomizer webSecurityCustomizer() {
+//        return (web) -> web.ignoring().requestMatchers("/h2-console/**", "/js/**");
+//    }
     
     
 //    @Bean
