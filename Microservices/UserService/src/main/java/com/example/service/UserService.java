@@ -24,6 +24,7 @@ public class UserService {
 	ContactFeignClient feignClient;
 	
 	// here it has retrieved the id from controller mapping which is 1 let's say
+	@CircuitBreaker(name = "userService" , fallbackMethod="getUserByIdFallBack")
 	public User getUserById(Integer userId)
 	{
 		
@@ -34,5 +35,14 @@ public class UserService {
 		return user;
 	}
 	
+	public User getUserByIdFallBack(Integer uesrId , Throwable t)
+	{
+		
+		System.out.println("Our services are currently unavailable please try later!");
+		
+		return new User();
+	}
+	
 
 }
+
